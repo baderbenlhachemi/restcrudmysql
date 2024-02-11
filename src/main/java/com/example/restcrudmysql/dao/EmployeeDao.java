@@ -1,3 +1,4 @@
+/*
 package com.example.restcrudmysql.dao;
 
 import com.example.restcrudmysql.entity.Employee;
@@ -11,3 +12,4 @@ public interface EmployeeDao {
     void deleteById(Integer id);
 
 }
+*/
