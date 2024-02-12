@@ -40,8 +40,17 @@ public class EmployeeRestController {
         return dbEmployee;
     }
 
-    @PutMapping("/employees")
-    public Employee updateEmployee(@RequestBody Employee employee) {
+    @PutMapping("/employees/{id}")
+    public Employee updateEmployee(@PathVariable Integer id ,@RequestBody Employee employee) {
+        Employee dbEmployee = employeeService.findById(id);
+
+        if (dbEmployee == null) {
+            throw new EmployeeNotFoundException("An employee with this id is not found!");
+        }
+
+        // Set the id from path variable to ensure we're updating the correct employee
+        employee.setId(id);
+
         return employeeService.save(employee);
     }
 
