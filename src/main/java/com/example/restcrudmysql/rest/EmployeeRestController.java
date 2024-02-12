@@ -29,6 +29,11 @@ public class EmployeeRestController {
         return employeeService.findById(id);
     }
 
+    @GetMapping("/employees/sorted")
+    public List<Employee> getEmployeesSorted() {
+        return employeeService.findAllByOrderByLastNameAsc();
+    }
+
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee employee) {
         // in case an id is passed in JSON ... set it to 0
